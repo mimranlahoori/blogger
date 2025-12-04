@@ -33,6 +33,8 @@
                 </div>
             </header>
         @endisset
+
+        <div class="max-w-7xl mx-auto px-2 sm:px-3 lg:px-5">
         @if (session('success'))
             <div x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 5000)"
                 class="p-4 mx-4 mt-4 bg-green-50 border border-green-200 rounded-md dark:bg-green-900/20 dark:border-green-800">
@@ -72,7 +74,7 @@
                 </div>
             </div>
         @endif
-
+        </div>
         <!-- Page Content -->
         <main>
             {{ $slot }}

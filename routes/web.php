@@ -103,8 +103,14 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/settings', [AdminSettingController::class, 'index'])->name('settings.index');
     Route::post('/settings', [AdminSettingController::class, 'update'])->name('settings.update');
 
-    // Activity Logs (optional)
+    // Activity Logs
     Route::get('/activity-logs', [AdminController::class, 'activityLogs'])->name('activity-logs.index');
+    Route::post('/activity-logs/clear', [AdminController::class, 'clearLogs'])->name('activity-logs.clear');
+
+    // System
+    Route::get('/system/info', [AdminController::class, 'systemInfo'])->name('system.info');
+    Route::match(['get', 'post'], '/system/maintenance', [AdminController::class, 'maintenance'])->name('system.maintenance');
+    Route::match(['get', 'post'], '/system/backup', [AdminController::class, 'backup'])->name('system.backup');
 
 
 
